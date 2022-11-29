@@ -1,3 +1,4 @@
+
 -- ########  TABLE  ########
 
 CREATE TABLE LesDisciplines (
@@ -49,10 +50,10 @@ CREATE TABLE LesEpreuves (
   CONSTRAINT EP_CK2 CHECK (categorieEp IN ('feminin','masculin','mixte')),
   CONSTRAINT EP_CK3 CHECK (numEp > 0),
   CONSTRAINT EP_CK4 CHECK (nbSportifsEp > 0),
-  CONSTRAINT EP_CK1 CHECK(numPOr <> numPArgent <> numPBronze),
-  CONSTRAINT EP_CK1 CHECK(numPOr > 0 AND numPOr <= 1500 ),
-  CONSTRAINT EP_CK1 CHECK(numPArgent > 0 AND numPArgent <= 1500 ),
-  CONSTRAINT EP_CK1 CHECK(numPBronze > 0 AND numPBronze <= 1500 ),
+  CONSTRAINT EP_CK5 CHECK ((numPOr <> numPArgent <> numPBronze) OR (numPOr == 0 AND numPArgent == 0 AND numPBronze == 0)),
+  CONSTRAINT EP_CK6 CHECK (numPOr > 0 AND numPOr <= 1500 OR numPOr == NULL),
+  CONSTRAINT EP_CK7 CHECK (numPArgent > 0 AND numPArgent <= 1500 OR numPArgent == NULL),
+  CONSTRAINT EP_CK8 CHECK (numPBronze > 0 AND numPBronze <= 1500 OR numPBronze == NULL),
   CONSTRAINT EP_FK1 FOREIGN KEY (nomDi) REFERENCES LesDisciplines (nomDi) ON DELETE CASCADE,
   CONSTRAINT EP_FK2 FOREIGN KEY (numPOr) REFERENCES LesParticipants (numP) ON DELETE CASCADE,
   CONSTRAINT EP_FK3 FOREIGN KEY (numPArgent) REFERENCES LesParticipants (numP) ON DELETE CASCADE,
