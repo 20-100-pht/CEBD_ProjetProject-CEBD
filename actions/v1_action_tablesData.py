@@ -38,9 +38,13 @@ class AppTablesDataV1(QDialog):
     @pyqtSlot()
     def refreshAllTablesV1(self):
 
-        self.refreshTable(self.ui.label_epreuves, self.ui.tableEpreuves, "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, dateEp FROM LesEpreuves")
-        self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs, "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, numEq FROM LesSportifsEQ")
+        self.refreshTable(self.ui.label_LesEpreuves, self.ui.tableEpreuves, "SELECT numEp, nomEp, forme, nomDi, categorieEp, nbSportifsEp, dateEp, numPOr, numPArgent, numPBronze FROM LesEpreuves")
+        self.refreshTable(self.ui.label_LesSportifs_base, self.ui.tableSportifs, "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp FROM LesSportifs_base")
+        self.refreshTable(self.ui.label_LesEquipes_base, self.ui.tableEquipes, "SELECT numEq FROM LesEquipes_base")
+        self.refreshTable(self.ui.label_LesMembresEquipes, self.ui.tableMembresEquipes, "SELECT numEq, numSp FROM LesMembresEquipes")
+        self.refreshTable(self.ui.label_LesParticipants, self.ui.tableParticipants, "SELECT numP FROM LesParticipants")
+        self.refreshTable(self.ui.label_LesDisciplines, self.ui.tableDisciplines, "SELECT nomDi FROM LesDisciplines")
+        self.refreshTable(self.ui.label_LesParticipations, self.ui.tableParticipations, "SELECT numP, numEp FROM LesParticipations")
+        self.refreshTable(self.ui.label_LesSportifs, self.ui.tableSportifsView, "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp FROM LesSportifs")
+        self.refreshTable(self.ui.label_LesEquipes, self.ui.tableEquipesView, "SELECT numEq, nbEquipiersEq FROM LesEquipes")
 
-        # TODO 1.3 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
-        # TODO 1.4b : ajouter l'affichage des éléments de la vue LesAgesSportifs après l'avoir créée
-        # TODO 1.5b : ajouter l'affichage des éléments de la vue LesNbsEquipiers après l'avoir créée
