@@ -8,3 +8,6 @@ DROP VIEW IF EXISTS LesEquipes;
 DROP TABLE IF EXISTS LesMembresEquipes;
 DROP TABLE IF EXISTS LesSportifs_base;
 DROP TABLE IF EXISTS LesEquipes_base;
+
+DROP TRIGGER IF EXISTS triggerUniquementSportifs;
+
