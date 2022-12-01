@@ -47,4 +47,3 @@ class AppTablesDataV1(QDialog):
         self.refreshTable(self.ui.label_LesParticipations, self.ui.tableParticipations, "SELECT numP, numEp FROM LesParticipations")
         self.refreshTable(self.ui.label_LesSportifs, self.ui.tableSportifsView, "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp FROM LesSportifs")
         self.refreshTable(self.ui.label_LesEquipes, self.ui.tableEquipesView, "SELECT numEq, nbEquipiersEq FROM LesEquipes")
-

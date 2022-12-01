@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
-    <height>900</height>
+    <width>741</width>
+    <height>925</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -268,7 +268,7 @@
     <property name="geometry">
      <rect>
       <x>12</x>
-      <y>810</y>
+      <y>860</y>
       <width>685</width>
       <height>16</height>
      </rect>
@@ -538,7 +538,7 @@
      <rect>
       <x>12</x>
       <y>640</y>
-      <width>685</width>
+      <width>705</width>
       <height>32</height>
      </rect>
     </property>
@@ -604,7 +604,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_3_1">
        <property name="text">
-        <string>3.1 Gérer les inscriptions à des épreuves</string>
+        <string>Ajout BD V1</string>
        </property>
       </widget>
      </item>
@@ -649,7 +649,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_3_2">
        <property name="text">
-        <string>3.2 Gérer les résultats aux épreuves</string>
+        <string>Suppression BD V1</string>
        </property>
       </widget>
      </item>
@@ -762,7 +762,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>780</y>
+      <y>830</y>
       <width>685</width>
       <height>31</height>
      </rect>
@@ -788,7 +788,7 @@
      <rect>
       <x>10</x>
       <y>140</y>
-      <width>681</width>
+      <width>738</width>
       <height>44</height>
      </rect>
     </property>
@@ -889,7 +889,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_consulter_V1">
        <property name="text">
-        <string>Consultation BD V1</string>
+        <string>Consultation</string>
        </property>
       </widget>
      </item>
@@ -930,14 +930,59 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QWidget" name="layoutWidget_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>790</y>
+      <width>681</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_3_3">
+     <item>
+      <spacer name="horizontalSpacer_28">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3_3">
+       <property name="text">
+        <string>Update BD V1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_29">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>710</width>
-     <height>21</height>
+     <width>741</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFiles">
@@ -1181,6 +1226,86 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_2_1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_part2_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>353</x>
+     <y>636</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>682</x>
+     <y>631</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_part2_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>501</x>
+     <y>679</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>642</x>
+     <y>735</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3_1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_add()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>349</x>
+     <y>745</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>572</x>
+     <y>764</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_delete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>783</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>117</x>
+     <y>752</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>318</x>
+     <y>830</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>207</x>
+     <y>797</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createDBV0()</slot>
@@ -1196,5 +1321,10 @@
   <slot>insertDBV1()</slot>
   <slot>openDataV1()</slot>
   <slot>createTriggersDBV1()</slot>
+  <slot>open_part2_1()</slot>
+  <slot>open_part2_2()</slot>
+  <slot>open_add()</slot>
+  <slot>open_delete()</slot>
+  <slot>open_update()</slot>
  </slots>
 </ui>

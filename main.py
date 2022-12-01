@@ -13,6 +13,10 @@ from actions.v0_action_fct_fournie_2_partie_0 import AppFctFournie2Partie0
 from actions.v0_action_fct_comp_1_partie_1 import AppFctComp1Partie1
 from actions.v0_action_fct_comp_2_partie_1 import AppFctComp2Partie1
 from actions.v1_action_part2_1 import AppPart2_1
+from actions.v1_action_part2_2 import AppPart2_2
+from actions.v1_action_add import AppAdd
+from actions.v1_action_delete import AppDelete
+from actions.v1_action_update import AppUpdate
 
 # Classe utilisée pour lancer la fenêtre principale de l'application et définir ses actions
 class AppWindow(QMainWindow):
@@ -31,6 +35,10 @@ class AppWindow(QMainWindow):
     fct_comp_1_dialog = None
     fct_comp_2_dialog = None
     fct_comp_part2_1_dialog = None
+    fct_comp_part2_2_dialog = None
+    fct_add_dialog = None
+    fct_delete_dialog = None
+    fct_update_dialog = None
 
     # Constructeur
     def __init__(self):
@@ -114,9 +122,8 @@ class AppWindow(QMainWindow):
 
         except Exception as e:
              # En cas d'erreur, on affiche un message
-            display.refreshLabel(self.ui.label_retour_BD,
-                                  "L'erreur suivante s'est produite pendant lors de la création de la base V1: " + repr(
-                                      e) + ".")
+            print(self.ui.label_retour_BD,"L'erreur suivante s'est produite pendant lors de la création de la base V1: " + repr(e) + ".")
+            display.refreshLabel(self.ui.label_retour_BD,"L'erreur suivante s'est produite pendant lors de la création de la base V1: " + repr(e) + ".")
 
         else:
             # Si tout s'est bien passé, on affiche le message de succès et on commit
@@ -238,6 +245,34 @@ class AppWindow(QMainWindow):
             self.fct_comp_part2_1_dialog.close()
         self.fct_comp_part2_1_dialog = AppPart2_1(self.data)
         self.fct_comp_part2_1_dialog.show()
+        
+    # En cas de clic sur la fonction 2.1
+    def open_part2_2(self):
+        if self.fct_comp_part2_2_dialog is not None:
+            self.fct_comp_part2_2_dialog.close()
+        self.fct_comp_part2_2_dialog = AppPart2_2(self.data)
+        self.fct_comp_part2_2_dialog.show()
+    
+    # En cas de clic sur la fonction ajout
+    def open_add(self):
+        if self.fct_add_dialog is not None:
+            self.fct_add_dialog.close()
+        self.fct_add_dialog = AppAdd(self.data)
+        self.fct_add_dialog.show()
+        
+    # En cas de clic sur la fonction suppression
+    def open_delete(self):
+        if self.fct_delete_dialog is not None:
+            self.fct_delete_dialog.close()
+        self.fct_delete_dialog = AppDelete(self.data)
+        self.fct_delete_dialog.show()
+        
+    # En cas de clic sur la fonction update
+    def open_update(self):
+        if self.fct_update_dialog is not None:
+            self.fct_update_dialog.close()
+        self.fct_update_dialog = AppUpdate(self.data)
+        self.fct_update_dialog.show()
 
     ####################################################################################################################
     # Fonctions liées aux évènements (signal/slot/event)
@@ -264,6 +299,14 @@ class AppWindow(QMainWindow):
             self.fct_comp_2_dialog.close()
         if (self.fct_comp_part2_1_dialog is not None):
             self.fct_comp_part2_1_dialog.close()
+        if (self.fct_comp_part2_2_dialog is not None):
+            self.fct_comp_part2_2_dialog.close()
+        if (self.fct_add_dialog is not None):
+            self.fct_add_dialog.close()
+        if (self.fct_delete_dialog is not None):
+            self.fct_delete_dialog.close()
+        if (self.fct_update_dialog is not None):
+            self.fct_update_dialog.close()
 
         # On ferme proprement la base de données
         self.data.close()

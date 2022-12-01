@@ -15,7 +15,7 @@ def read_excel_file_V0(data:sqlite3.Connection, file):
             query = "insert into V0_LesSportifsEQ values ({},'{}','{}','{}','{}','{}',{})".format(
                 row['numSp'], row['nomSp'], row['prenomSp'], row['pays'], row['categorieSp'], row['dateNaisSp'], row['numEq'])
             # On affiche la requête pour comprendre la construction. A enlever une fois compris.
-            print(query)
+            #print(query)
             cursor.execute(query)
         except IntegrityError as err:
             print(err)
@@ -36,7 +36,7 @@ def read_excel_file_V0(data:sqlite3.Connection, file):
             else:
                 query = query + "null)"
             # On affiche la requête pour comprendre la construction. A enlever une fois compris.
-            print(query)
+            #print(query)
             cursor.execute(query)
         except IntegrityError as err:
             print(f"{err} : \n{row}")
@@ -54,14 +54,14 @@ def read_excel_file_V1(data:sqlite3.Connection, file):
             query = "insert into LesSportifs_base values ('{}','{}','{}','{}','{}','{}')".format(
                 row['numSp'], row['nomSp'], row['prenomSp'], row['pays'], row['categorieSp'], row['dateNaisSp'])
             # On affiche la requête pour comprendre la construction. A enlever une fois compris.
-            print(query)
+            #print(query)
             cursor.execute(query)
         except IntegrityError as err:
             print(err)
             
         try:
             query = "insert into LesEquipes_base values ('{}')".format(row['numEq'])
-            print(query)
+            #print(query)
             cursor.execute(query)
         except IntegrityError as err:
             print(err)
@@ -69,7 +69,7 @@ def read_excel_file_V1(data:sqlite3.Connection, file):
         if(row['numEq'] != 'null'):
             try:
                 query = "insert into LesMembresEquipes values ('{}', '{}')".format(row['numEq'], row['numSp'])
-                print(query)
+                #print(query)
                 cursor.execute(query)
             except IntegrityError as err:
                 print(err)
@@ -79,7 +79,7 @@ def read_excel_file_V1(data:sqlite3.Connection, file):
         if(row['numEq'] != 'null'):
             try:
                 query = "insert into LesParticipants values ('{}')".format(row['numEq'])
-                print(query)
+                #print(query)
                 cursor.execute(query)
             except IntegrityError as err:
                 print(err)
@@ -87,7 +87,7 @@ def read_excel_file_V1(data:sqlite3.Connection, file):
         if(row['numSp'] != 'null'):
             try:
                 query = "insert into LesParticipants values ('{}')".format(row['numSp'])
-                print(query)
+                #print(query)
                 cursor.execute(query)
             except IntegrityError as err:
                 print(err)
@@ -107,7 +107,7 @@ def read_excel_file_V1(data:sqlite3.Connection, file):
     for ix, row in df_epreuves.iterrows():
         try:
             query = "insert into LesDisciplines values ('{}')".format(row['nomDi'])
-            print(query)
+            #print(query)
             cursor.execute(query)
         except IntegrityError as err:
             print(f"{err} : \n{row}")
@@ -128,7 +128,7 @@ def read_excel_file_V1(data:sqlite3.Connection, file):
                 row['numEp'], row['nomEp'], row['formeEp'], row['nomDi'], row['categorieEp'], row['nbSportifsEp'], row['dateEp'], goldP, silverP, bronzeP)
 
             # On affiche la requête pour comprendre la construction. A enlever une fois compris.
-            print(query)
+            #print(query)
             cursor.execute(query)
         except IntegrityError as err:
             print(f"{err} : \n{row}")
@@ -142,7 +142,7 @@ def read_excel_file_V1(data:sqlite3.Connection, file):
     for ix, row in df_epreuves.iterrows():
         try:
             query = "insert into LesParticipations values ({}, {})".format(row['numIn'], row['numEp'])
-            print(query)
+            #print(query)
             cursor.execute(query)
         except IntegrityError as err:
             print(f"{err} : \n{row}")

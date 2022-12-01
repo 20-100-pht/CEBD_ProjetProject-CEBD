@@ -1,5 +1,4 @@
--- TODO 3.3 Créer un trigger pertinent
-
+-- ########  TRIGGER ########
 
 CREATE TRIGGER triggerUniquementSportifs BEFORE INSERT ON LesParticipations
 WHEN EXISTS(SELECT * FROM LesEpreuves WHERE numEp=NEW.numEp AND forme='individuelle' AND NEW.numP < 1000)
